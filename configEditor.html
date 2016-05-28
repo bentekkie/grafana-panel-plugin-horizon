@@ -18,6 +18,7 @@
             <label class="small">Axis height</label>
             <select class="input-mini tight-form-input" ng-model="ctrl.panel.horizon.axisHeight" ng-options="f for f in [20,21,22,23,24,25,26,27,28,29,30]" ng-change="ctrl.render()"></select>
         </div>
+        <editor-opt-bool text="Hide empty" model="ctrl.panel.horizon.hideEmpty" change="ctrl.render()"></editor-opt-bool>
     </div>
 
     <div class="section">
@@ -49,7 +50,8 @@
         <h5>Legend styles</h5>
         <editor-opt-bool text="Show legend" model="ctrl.panel.legend.show" change="ctrl.refresh()"></editor-opt-bool>
         <editor-opt-bool text="Include values" model="ctrl.panel.legend.values" change="ctrl.render()"></editor-opt-bool>
-        <editor-opt-bool text="Right side" model="ctrl.panel.legend.rightSide" change="ctrl.render()"></editor-opt-bool>
+        <editor-opt-bool text="Name right side" model="ctrl.panel.legend.rightSide" change="ctrl.render()"></editor-opt-bool>
+        <editor-opt-bool text="Values opposite side" model="ctrl.panel.legend.vOppSide" change="ctrl.render()"></editor-opt-bool>
     </div>
 
     <div class="section" ng-if="ctrl.panel.legend.values">

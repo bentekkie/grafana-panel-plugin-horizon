@@ -63,10 +63,21 @@ define([
                                     'color': panel.horizon.labelColor
                                 }
                             });
-                            $legend.append($('<div>', {
-                                'class': 'graph-legend-alias small'
-                            }).html(series.label));
+                            var $legendLabel = $('<div>', {
+                                'class': 'graph-legend-alias small',
+                                'css' : {
+                            		'float': (ctrl.panel.legend.rightSide) ? 'right' : 'left',
+                            		'margin-right': (ctrl.panel.legend.rightSide) ? '8px' : '0'
+                            	}
+                            }).html(series.label);
                             if (panel.legend.values) {
+                            	var $legendValues = $('<div>', {
+                                	'class': 'graph-legend-alias small',
+                                	'css' : {
+                                		'float': ((ctrl.panel.legend.vOppSide && !ctrl.panel.legend.rightSide) || (!ctrl.panel.legend.vOppSide && ctrl.panel.legend.rightSide)) ? 'right' : 'left',
+                                		'margin-right': ((ctrl.panel.legend.vOppSide && !ctrl.panel.legend.rightSide) || (!ctrl.panel.legend.vOppSide && ctrl.panel.legend.rightSide)) ? '8px' : '0'
+                                	}
+                            	})
                                 var avg = series.formatValue(series.stats.avg);
                                 var min = series.formatValue(series.stats.min);
                                 var max = series.formatValue(series.stats.max);
@@ -88,6 +99,15 @@ define([
                                 if (panel.legend.total) {
                                     $legend.append('<div class="graph-legend-value total small">' + total + '</div>');
                                 }
+                                if (ctrl.panel.legend.vOppSide && ctrl.panel.legend.rightSide){
+                                	$legend.append($legendValues);
+                                	$legend.append($legendLabel);
+                                } else {
+                                	$legend.append($legendLabel);
+                                	$legend.append($legendValues);
+                                }
+                            } else {
+                            	$legend.append($legendLabel);
                             }
                             nbSeries++;
                             $container.append($legend);

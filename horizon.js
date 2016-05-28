@@ -218,7 +218,7 @@ define([
                         for (var i = 0; i < data.length; i++) {
                             var series = data[i];
                             series.applySeriesOverrides(panel.seriesOverrides);
-                            series.data = series.getFlotPairs(series.nullPointMode || panel.nullPointMode, panel.y_formats);
+                            series.data = series.getFlotPairs(series.nullPointMode || "null as zero", panel.y_formats);
 
                             // if hidden remove points
                             if (ctrl.hiddenSeries[series.alias]) {
