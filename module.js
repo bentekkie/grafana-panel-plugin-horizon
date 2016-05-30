@@ -170,7 +170,7 @@ define([
                 this.datapointsOutside = false;
                 this.seriesList = dataList.map(this.seriesHandler.bind(this));
                 if(this.panel.horizon.hideEmpty){
-	                this.seriesList this.seriesList.filter( function(item) {
+	                this.seriesList = this.seriesList.filter( function(item) {
 	                	var sum = 0;
 	                	$.each(item['datapoints'], function( index, value) {
 	                		sum += value[0];
