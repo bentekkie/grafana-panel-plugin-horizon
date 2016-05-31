@@ -60,7 +60,8 @@ define([
                                     'text-align': (panel.legend.rightSide) ? 'right' : 'left',
                                     'position': 'absolute',
                                     'top': nbSeries * (panel.horizon.horizonHeight + panel.horizon.marginBottom) + 'px',
-                                    'color': panel.horizon.labelColor
+                                    'color': panel.horizon.labelColor,
+                                    'width': '100%'
                                 }
                             });
                             var $legendLabel = $('<div>', {
@@ -85,19 +86,19 @@ define([
                                 var total = series.formatValue(series.stats.total);
 
                                 if (panel.legend.min) {
-                                    $legend.append('<div class="graph-legend-value min small">' + min + '</div>');
+                                    $legendValues.append('<div class="graph-legend-value min small">' + min + '</div>');
                                 }
                                 if (panel.legend.max) {
-                                    $legend.append('<div class="graph-legend-value max small">' + max + '</div>');
+                                    $legendValues.append('<div class="graph-legend-value max small">' + max + '</div>');
                                 }
                                 if (panel.legend.avg) {
-                                    $legend.append('<div class="graph-legend-value avg small">' + avg + '</div>');
+                                    $legendValues.append('<div class="graph-legend-value avg small">' + avg + '</div>');
                                 }
                                 if (panel.legend.current) {
-                                    $legend.append('<div class="graph-legend-value current small">' + current + '</div>');
+                                    $legendValues.append('<div class="graph-legend-value current small">' + current + '</div>');
                                 }
                                 if (panel.legend.total) {
-                                    $legend.append('<div class="graph-legend-value total small">' + total + '</div>');
+                                    $legendValues.append('<div class="graph-legend-value total small">' + total + '</div>');
                                 }
                                 if (ctrl.panel.legend.vOppSide && ctrl.panel.legend.rightSide){
                                 	$legend.append($legendValues);
